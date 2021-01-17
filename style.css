@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@400;500;700&display=swap');
+
+:root {
+    --Dark-Magenta: hsl(300, 43%, 22%);
+    --Dark-Pink: #9b558b;
+}
+
+body {
+
+    /*Atributes to inherit*/
+    font-size: 15px;
+    font-weight: 400;
+    font-family: "Spartan";
+
+    /*FlexBox proprities - Used to center the grid*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mobile-background-image {
+    display: none;
+}
+
+.top-background {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+.bottom-background {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
+
+.background-image {
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+
+main {
+    width: 95vw;
+    height: 95vh;
+
+    /*Grid settings*/
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "description ratings" "comments comments";
+}
+
+.description {
+    grid-area: description;
+    width: 80%;
+    justify-self: center;
+
+    /*FlexBox Propreties*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.description p:first-child {
+    color: var(--Dark-Magenta);
+    font-size: 45px;
+    font-weight: 1000;
+    line-height: 45px;
+    margin-bottom: 0px;
+    animation-name: text-expansion;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes text-expansion {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    } 
+}
+
+.description p:last-child {
+    color: var(--Dark-Magenta);
+}
+
+.ratings {
+    grid-area: ratings;
+
+    /*FlexBox proprities*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.rating {
+    background-color: #f7f2f8;
+    border-radius: 5%;
+    background-size: cover;
+    width: 65%;
+    height: 15%;
+    margin: 1%;
+
+    /*FlexBox proprities*/
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.rating:hover {
+    background-color: #dbc7df;
+} 
+
+.rating1 {
+    align-self: flex-start;
+}
+
+.rating2 {
+    align-self: center;
+}
+
+.rating3 {
+    align-self: flex-end;
+}
+
+.stars {
+    width: 25%;
+    margin-left: 5%;
+
+    /*FlexBox proprities*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.ratings p {
+    margin-left: 5%;
+    color:hsl(300, 43%, 22%);
+    font-weight: 700;
+}
+
+.comments {
+    grid-area: comments;
+    padding-left: 5%;
+    padding-right: 5%;
+
+    display: flex;
+    flex-direction: row;
+
+}
+
+.card {
+    background-color: var(--Dark-Magenta);
+    margin: 10px;
+    border-radius: 5%;
+    height: 80%;
+
+    /*FlexBox propreties*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.card:hover {
+    box-shadow: 2px 12px 30px rgb(68, 64, 64);
+}
+
+.card-content:hover .parent {
+    box-shadow: 2px 12px 30px rgb(68, 64, 64);
+}
+
+.card-1 {
+    align-self: flex-start;
+}
+
+.card-2 {
+    align-self: center;
+}
+
+.card-3 {
+    align-self: flex-end;
+}
+
+.card-content {
+    width: 90%;
+    height: 90%;
+}
+
+.profile {
+    height: 40%;
+
+    /*FlexBox propreties*/
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.profile img {
+    border-radius: 50%;
+    margin-right: 5%;
+    margin-left: 5%;
+    transform: scale(0.9);
+}
+
+.name {
+    margin-bottom: 2px;
+    color: white;
+    font-weight: 500;
+}
+
+.status {
+    margin-top: 2px;
+    color: var(--Dark-Pink);
+}
+
+.comment {
+    color: white;
+    line-height: 25px;
+    margin-top: 7%;
+    font-size: 18px;
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+@media (max-width: 650px) {
+    main {
+        grid-template-areas: "description" "ratings" "comments";
+        grid-template-columns: 1fr;
+        margin-left: 5%;
+    }
+
+    .description p:first-child {
+        animation-name: none;
+        text-align: center;
+        margin-bottom: 2vh;
+    }
+
+    .description p:last-child {
+        text-align: center;
+        margin-bottom: 5vh;
+    }
+
+    .ratings {
+        margin-bottom: 5vh;
+    }
+
+    .rating {
+        height: 30%;
+        width: 100%;
+    }
+
+    .rating1 {
+        align-self: center;
+    }
+
+    .rating2 {
+        align-self: center;
+    }
+
+    .rating3 {
+        align-self: center;
+    }
+
+    .comments {
+        flex-direction: column;
+    }
+
+    .comment {
+        margin-top: 3%;
+    }
+
+    .card {
+        border-radius: 0%;
+    }
+
+}
